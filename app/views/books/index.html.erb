@@ -1,0 +1,44 @@
+ <h1>Books</h1>
+
+<!--ユーザーインフォ-->
+
+<!--投稿フォーム-->
+<h1>New book</h1>
+  <%= form_with model:@book, local:true do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <%= f.submit 'Create Book' %>
+<% end %>
+
+<!--book一覧-->
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="1"></th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+
+    <!--ここから下が可変-->
+    <tbody>
+      <% @books.each do |book| %>
+      <tr>
+        <td><%= image_tag('no_image.jpg') %></td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+      </tr>
+      <% end %>
+    </tbody>
+
+  </table>

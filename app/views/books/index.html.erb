@@ -1,6 +1,5 @@
- <h1>Books</h1>
-
 <!--ユーザーインフォ-->
+<h1>ユーザー</h1>
 
 <!--投稿フォーム-->
 <h1>New book</h1>
@@ -20,7 +19,8 @@
 <% end %>
 
 <!--book一覧-->
-
+<div>
+<h1>BOOKS</h1>
   <table>
     <thead>
       <tr>
@@ -35,10 +35,17 @@
       <% @books.each do |book| %>
       <tr>
         <td><%= image_tag('no_image.jpg') %></td>
-        <td><%= book.title %></td>
+
+        <td>
+        <%= link_to book_path(book.id) do %>
+          <%= book.title %>
+        <% end %>
+        </td>
+
         <td><%= book.body %></td>
       </tr>
       <% end %>
     </tbody>
 
   </table>
+  </div>

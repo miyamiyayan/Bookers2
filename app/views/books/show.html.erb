@@ -1,0 +1,27 @@
+<!--ユーザーインフォ-->
+<h1>ユーザー</h1>
+
+<!--投稿フォーム　テンプレートを入れる場所-->
+
+<!--book一覧-->
+<h1>BOOKS</h1>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= image_tag('no_image.jpg') %></td>
+        <td><%= @book.title %></td>
+        <td><%= @book.body %></td>
+        <td>
+          <% if @book.user == current_user %>
+          <%= link_to "Edit", edit_book_path(@book) %>
+          <% end %>
+        </td>
+        <td>
+          <% if @book.user == current_user %>
+          <%= link_to "Destroy", book_path(@book), method: :delete %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>

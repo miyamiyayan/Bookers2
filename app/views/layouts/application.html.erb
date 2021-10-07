@@ -9,17 +9,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <header>
     <a href="/">Bookers2</a>
     <% if user_signed_in? %>
       <li>
-        <%= link_to "Home", root_path %>
+        <%= link_to "Home", books_path %>
       </li>
       <li>
         User
       </li>
       <li>
-        Books
+        <%= link_to "Books", books_path %>
       </li>
       <li>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
@@ -29,7 +29,7 @@
         <%= link_to "Home", root_path %>
       </li>
       <li>
-        About
+        <%= link_to "About", about_path %>
       </li>
       <li>
         <%= link_to "Sign up", new_user_registration_path %>
@@ -38,7 +38,14 @@
         <%= link_to "Log in", new_user_session_path %>
       </li>
     <% end %>
+  </header>
 
+  <body>
     <%= yield %>
   </body>
+
+  <footer>
+    <p>CopyRight Infratop.inc</p>
+  </footer>
+
 </html>

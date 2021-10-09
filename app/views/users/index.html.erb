@@ -1,0 +1,41 @@
+<!--ユーザーインフォ-->
+<h1>ユーザー</h1>
+<div>
+
+</div>
+
+<!--投稿フォーム-->
+<h1>New book</h1>
+
+<!--book一覧-->
+<div>
+<h1>Users</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>name</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+
+    <!--ここから下が可変-->
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></td>
+
+        <td>
+          <%= user.name %>
+        </td>
+
+        <td>
+        <%= link_to "show", user_path(user.id)  %>
+        </td>
+
+      </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+  </div>

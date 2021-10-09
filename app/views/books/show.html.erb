@@ -8,7 +8,7 @@
   <table>
     <tbody>
       <tr>
-        <td><%= image_tag('no_image.jpg') %></td>
+        <td><%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></td>
         <td><%= @book.title %></td>
         <td><%= @book.body %></td>
         <td>

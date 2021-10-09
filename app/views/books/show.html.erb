@@ -1,7 +1,12 @@
 <!--ユーザーインフォ-->
-<h1>ユーザー</h1>
+<div>
+  <%= render 'users/info', user: @user %>
+</div>
 
-<!--投稿フォーム　テンプレートを入れる場所-->
+<!--投稿フォーム-->
+<div>
+    <%= render 'books/post' %>
+</div>
 
 <!--book一覧-->
 <h1>BOOKS</h1>

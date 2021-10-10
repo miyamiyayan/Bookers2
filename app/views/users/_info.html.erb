@@ -1,12 +1,21 @@
-<h1>ユーザー</h1>
-<div>
-  <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
-  <h3>name</h3>
-  <h3><%= user.name %></h3>
-  <h3>introduction</h3>
-  <h3><%= user.introduction %></h3>
-  <% if user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
-  <% end %>
-
-</div>
+<h2>User info</h2>
+  <div>
+    <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+    <table class="table">
+      <tr>
+        <td>name</td>
+        <td><%= user.name %></td>
+      </tr>
+      <tr>
+        <td>introduction</td>
+        <td><%= user.introduction %></td>
+      </tr>
+    </table>
+    <div class="row">
+      <div class="col-lg-12 mx-auto">
+        <% if user.id == current_user.id %>
+          <%= link_to " ", edit_user_path(user), class: "btn btn-outline-secondary　btn-block fas fa-user-cog" %>
+        <% end %>
+      </div>
+    </div>
+  </div>

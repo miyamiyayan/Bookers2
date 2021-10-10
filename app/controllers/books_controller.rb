@@ -7,12 +7,14 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
+    @user = current_user
     if @book.save
       redirect_to book_path(@book.id)
     else
       @books = Book.all
       render :index
     end
+    flash[:notice] = "successfully"
   end
 
   def index
@@ -30,6 +32,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path
+    flash[:notice] = "Book was successfully destroyed."
   end
 
   def edit
@@ -43,6 +46,7 @@ class BooksController < ApplicationController
     else
       render :edit
     end
+    flash[:notice] = "successfully"
   end
 
 

@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+    flash[:notice] = "You have updated user successfully."
   end
 
   private
